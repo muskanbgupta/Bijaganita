@@ -1,0 +1,60 @@
+﻿@model Bijaganita.Models.Ganita
+
+<h1>Algebric Formulas</h1>
+<h3>Add Details</h3>
+<style>
+    body {
+        background-image: url('/image/background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    #ganitaForm {
+        width: 400px;
+        margin: 50px auto;
+        padding: 30px;
+        background: rgba(0, 0, 0, 0.65);
+        color: white;
+        border-radius: 15px;
+    }
+
+    h3 {
+        justify-content: center;
+        text-align: center;
+    }
+
+    h1 {
+        text-align: center;
+        color: blue;
+        background-color: white;
+    }
+</style>
+<form asp-action="Index" method="Post" id="ganitaForm">
+Name:
+<input name="Name" value="@Model.Name" required /><br/><br/>
+Formula:
+<select name="Formula" required>
+    <option value="">Select a Formula</option>
+  <option value="Radius">Radius / त्रिज्या</option>
+
+<option value="Area Of Circle">
+    Area of Circle / वृत्त का क्षेत्रफल
+</option>
+
+<option value="Area Of Rectangle">
+    Area of Rectangle / आयत का क्षेत्रफल
+</option>
+
+<option value="Area Of Triangle">
+    Area of Triangle / त्रिभुज का क्षेत्रफल
+</option>
+
+<option value="Area Of Square">
+    Area of Square / वर्ग का क्षेत्रफल
+</option>
+</select><br/><br/>
+
+<button type="submit">Submit</button>
+</form>

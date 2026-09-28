@@ -1,0 +1,64 @@
+﻿<div class="animation-box">
+
+    <h3>Area of Square Animation</h3>
+
+    <svg viewBox="0 0 500 350">
+
+        <rect x="150"
+              y="75"
+              width="200"
+              height="200"
+              fill="none"
+              stroke="#222"
+              stroke-width="4" />
+
+        <line id="squareSide"
+              x1="150"
+              y1="75"
+              x2="150"
+              y2="75"
+              stroke="#007bff"
+              stroke-width="6" />
+
+       <text x="210" y="55" fill="black">
+    Side / भुजा
+</text>
+    </svg>
+
+    <br />
+
+    <button type="button" onclick="animateSquare()">
+        Show Side
+    </button>
+
+</div>
+
+<script>
+
+function animateSquare() {
+
+    const side = document.getElementById("squareSide");
+
+    if (!side) return;
+
+    let progress = 0;
+
+    function animate() {
+
+        progress += 0.02;
+
+        if (progress > 1)
+            progress = 1;
+
+        const endX = 150 + (200 * progress);
+
+        side.setAttribute("x2", endX);
+
+        if (progress < 1)
+            requestAnimationFrame(animate);
+    }
+
+    animate();
+}
+
+</script>

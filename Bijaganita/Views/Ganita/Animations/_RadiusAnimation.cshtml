@@ -1,0 +1,68 @@
+﻿<div class="animation-box">
+
+    <h3>Radius Animation</h3>
+
+    <svg viewBox="0 0 500 350">
+
+        <circle cx="250" cy="175" r="100"
+                fill="none"
+                stroke="#222"
+                stroke-width="4" />
+
+        <circle cx="250" cy="175" r="7"
+                fill="#222" />
+
+        <line id="radiusLine"
+              x1="250"
+              y1="175"
+              x2="250"
+              y2="175"
+              stroke="#007bff"
+              stroke-width="6" />
+              <text x="260" y="165" fill="black">
+    Centre / केंद्र
+</text>
+
+<text x="300" y="145" fill="black">
+    Radius / त्रिज्या
+</text>
+
+    </svg>
+
+    <br />
+
+    <button type="button" onclick="animateRadius()">
+        Play Animation
+    </button>
+
+</div>
+
+<script>
+function animateRadius() {
+
+    const line = document.getElementById("radiusLine");
+
+    if (!line) return;
+
+    let progress = 0;
+
+    function animate() {
+
+        progress += 0.02;
+
+        if (progress > 1) {
+            progress = 1;
+        }
+
+        const endX = 250 + (100 * progress);
+
+        line.setAttribute("x2", endX);
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        }
+    }
+
+    animate();
+}
+</script>

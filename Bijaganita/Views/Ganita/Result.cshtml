@@ -1,0 +1,174 @@
+﻿@model Bijaganita.Models.Ganita
+
+<style>
+   
+.back-section {
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 30px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 28px;
+    background: linear-gradient(135deg, #00a8e8, #4267d5);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 168, 232, 0.35);
+    color: white;
+}
+    body {
+        background-image: url('/image/background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100vh;
+    }
+
+    .suggestion-box {
+        width: 700px;
+        max-width: 90%;
+        margin: 50px auto;
+        padding: 30px;
+        background: rgba(10, 20, 45, 0.85);
+        color: white;
+        border-radius: 20px;
+        border: 1px solid rgba(100, 220, 255, 0.3);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    }
+
+        .suggestion-box h2 {
+            color: white;
+            background: linear-gradient(135deg, #00a8e8, #4267d5);
+            text-align: center;
+            padding: 14px;
+            border-radius: 12px;
+        }
+
+        .suggestion-box h3 {
+            color: #9fffe5;
+            background: rgba(0, 150, 210, 0.25);
+            border-left: 5px solid #49d9ff;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 25px;
+        }
+
+        .suggestion-box p,
+        .suggestion-box li {
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .suggestion-box b {
+            color: #8ee8ff;
+        }
+
+    .formula {
+        padding: 18px;
+        margin: 18px 0;
+        background: linear-gradient(135deg, #143c6e, #281e64);
+        color: white;
+        border-radius: 12px;
+        text-align: center;
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .suggestion-box hr {
+        border: none;
+        height: 1px;
+        background: rgba(100, 220, 255, 0.4);
+        margin: 25px 0;
+    }
+
+    .animation-box {
+        margin-top: 30px;
+        padding: 25px;
+        text-align: center;
+        background: linear-gradient( 145deg, rgba(10, 45, 80, 0.95), rgba(35, 25, 80, 0.95) );
+        border-radius: 18px;
+    }
+
+        .animation-box h3 {
+            color: white;
+        }
+
+        .animation-box svg {
+            width: 100%;
+            max-width: 500px;
+            background: white;
+            border-radius: 12px;
+        }
+
+        .animation-box button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+            .animation-box button:hover {
+                background: #0056b3;
+            }
+</style>
+
+<div class="suggestion-box">
+
+    <h2>Mathematics Assistant</h2>
+
+    <p><b>Student:</b> @Model.Name</p>
+    <p><b>Formula:</b> @Model.Formula</p>
+
+    <hr />
+
+    <div class="ai-result">
+        @Html.Raw(Model.Suggestion)
+    </div>
+
+    @if (Model.Formula == "Radius")
+    {
+        <partial name="Animations/_RadiusAnimation" />
+    }
+
+    @if (Model.Formula == "Area Of Circle")
+    {
+        <partial name="Animations/_CircleAnimation" />
+    }
+
+    @if (Model.Formula == "Area Of Rectangle")
+    {
+        <partial name="Animations/_RectangleAnimation" />
+    }
+
+    @if (Model.Formula == "Area Of Triangle")
+    {
+        <partial name="Animations/_TriangleAnimation" />
+    }
+
+    @if (Model.Formula == "Area Of Square")
+    {
+        <partial name="Animations/_SquareAnimation" />
+    }
+
+</div>
+ <div class="back-section">
+    <a asp-controller="Ganita"
+       asp-action="Index"
+       class="back-button">
+        ← Back
+    </a>
+</div>

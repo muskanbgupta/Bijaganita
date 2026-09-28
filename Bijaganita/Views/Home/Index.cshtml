@@ -1,0 +1,127 @@
+﻿<style>
+
+    html, body {
+        margin: 0;
+        width: 100%;
+        min-height: 100%;
+    }
+
+    body {
+        background-image: url('/image/background.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    .home-container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+
+        /* Dark transparent layer */
+        background-color: rgba(0, 50, 100, 0.45);
+
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .home-container h1 {
+        font-size: 52px;
+        margin-bottom: 10px;
+        text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .home-container h3 {
+        font-size: 25px;
+        margin-bottom: 15px;
+    }
+
+    .home-container p {
+        font-size: 20px;
+        max-width: 650px;
+        line-height: 1.6;
+    }
+
+    .start-button {
+        margin-top: 25px;
+        padding: 15px 35px;
+
+        background-color: #1976d2;
+        color: white;
+
+        text-decoration: none;
+        border-radius: 10px;
+
+        font-size: 18px;
+        font-weight: bold;
+
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+
+        transition: 0.3s;
+    }
+
+    .start-button:hover {
+        background-color: #0d47a1;
+        transform: translateY(-3px);
+    }
+
+    .fade-in {
+        opacity: 0;
+        transform: translateY(50px);
+        transition: opacity 0.8s ease,
+                    transform 0.8s ease;
+    }
+
+    .fade-in.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+</style>
+
+
+<div class="home-container">
+
+    <div class="fade-in">
+
+        <h1>Bijaganita</h1>
+
+       <h3>Welcome to Bijaganita</h3>
+
+<p>
+    This website represents <b>Bijaganita</b>, an important part of the
+    Indian mathematical tradition. It shows how mathematicians studied
+    numbers, unknown quantities, equations, and formulas through rules
+    and calculations. These ideas are presented here in a modern,
+    interactive way with explanations and animations.
+</p>
+
+        <a asp-controller="Ganita"
+           asp-action="Index"
+           class="start-button">
+
+            Start Learning Mathematics
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    window.addEventListener("load", function () {
+
+        const content = document.querySelector(".fade-in");
+
+        content.classList.add("show");
+
+    });
+
+</script>

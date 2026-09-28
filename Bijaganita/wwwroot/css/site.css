@@ -1,0 +1,80 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
+  color: var(--bs-secondary-color);
+  text-align: end;
+}
+
+.form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
+  text-align: start;
+}
+.bijaganita-header {
+    width: 100%;
+    padding: 15px 0;
+    background: rgba(8, 20, 45, 0.85);
+    border-bottom: 1px solid rgba(80, 210, 255, 0.25);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+}
+.bijaganita-navbar {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bijaganita-logo {
+    color: #7eeaff;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(126, 234, 255, 0.35);
+    transition: 0.3s;
+}
+
+    .bijaganita-logo:hover {
+        color: #ffffff;
+        text-shadow: 0 0 12px rgba(126, 234, 255, 0.6);
+    }
+
+.bijaganita-nav {
+    display: flex;
+    gap: 30px;
+}
+
+    .bijaganita-nav a {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+        font-size: 16px;
+        padding: 8px 12px;
+        border-radius: 8px;
+        transition: 0.3s;
+    }
+
+        .bijaganita-nav a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: white;
+        }

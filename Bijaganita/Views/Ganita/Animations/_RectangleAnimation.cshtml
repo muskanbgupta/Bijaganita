@@ -1,0 +1,76 @@
+﻿<div class="animation-box">
+
+    <h3>Area of Rectangle Animation</h3>
+
+    <svg viewBox="0 0 500 350">
+
+        <rect x="100" y="100"
+              width="300"
+              height="150"
+              fill="none"
+              stroke="black"
+              stroke-width="4" />
+
+        <line id="rectangleLength"
+              x1="100" y1="270"
+              x2="100" y2="270"
+              stroke="blue"
+              stroke-width="6" />
+
+        <line id="rectangleWidth"
+              x1="80" y1="100"
+              x2="80" y2="100"
+              stroke="red"
+              stroke-width="6" />
+
+        <text x="220" y="300" fill="black">
+            Length / लंबाई
+        </text>
+
+        <text x="20" y="180" fill="black">
+            Width / चौड़ाई
+        </text>
+
+    </svg>
+
+    <br />
+
+    <button type="button" id="rectangleButton">
+        Show Length &amp; Width
+    </button>
+
+</div>
+
+<script>
+
+document.getElementById("rectangleButton").addEventListener("click", function () {
+
+    const length = document.getElementById("rectangleLength");
+    const width = document.getElementById("rectangleWidth");
+
+    let progress = 0;
+
+    function animate() {
+
+        progress += 0.02;
+
+        if (progress > 1) {
+            progress = 1;
+        }
+
+        const lengthX = 100 + (300 * progress);
+        const widthY = 100 + (150 * progress);
+
+        length.setAttribute("x2", lengthX);
+        width.setAttribute("y2", widthY);
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        }
+    }
+
+    animate();
+
+});
+
+</script>

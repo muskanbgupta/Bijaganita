@@ -1,0 +1,99 @@
+﻿<div class="animation-box">
+
+    <h3>Area of Circle Animation</h3>
+
+    <svg viewBox="0 0 500 350">
+
+        <!-- Circle -->
+        <circle cx="250"
+                cy="175"
+                r="100"
+                fill="none"
+                stroke="#222"
+                stroke-width="4" />
+
+        <!-- Area fill -->
+        <circle id="circleArea"
+                cx="250"
+                cy="175"
+                r="100"
+                fill="#00a8e8"
+                opacity="0" />
+
+        <!-- Centre -->
+        <circle cx="250"
+                cy="175"
+                r="7"
+                fill="#222" />
+
+        <!-- Radius -->
+        <line id="circleAreaRadius"
+              x1="250"
+              y1="175"
+              x2="250"
+              y2="175"
+              stroke="#007bff"
+              stroke-width="6"
+              stroke-linecap="round" />
+
+        <text x="260" y="165" fill="black">
+            Centre / केंद्र
+        </text>
+
+        <text id="circleAreaRadiusText"
+              x="250"
+              y="145"
+              fill="black">
+            Radius / त्रिज्या
+        </text>
+
+    </svg>
+
+    <br />
+
+    <button type="button" onclick="animateCircleArea()">
+        Show Area
+    </button>
+
+</div>
+
+<script>
+
+function animateCircleArea() {
+
+    const line = document.getElementById("circleAreaRadius");
+    const text = document.getElementById("circleAreaRadiusText");
+    const area = document.getElementById("circleArea");
+
+    if (!line || !text || !area) return;
+
+    let progress = 0;
+
+    function animate() {
+
+        progress += 0.02;
+
+        if (progress > 1) {
+            progress = 1;
+        }
+
+        /* Animate radius */
+        const endX = 250 + (100 * progress);
+
+        line.setAttribute("x2", endX);
+        text.setAttribute("x", endX + 10);
+
+        /* After radius reaches edge, show area */
+        if (progress === 1) {
+            area.setAttribute("opacity", "0.35");
+        }
+
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        }
+    }
+
+    animate();
+}
+
+</script>
